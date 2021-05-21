@@ -1,0 +1,245 @@
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>
+<script type="text/javascript">
+    var app = angular.module('MyApp', [])
+    app.controller('MyController', function ($scope) {
+        //This will disable the TextBox by default.
+        $scope.IsDisabled = true;
+        $scope.EnableDisable = function () {
+            //If TextBox is disabled it will be enabled and vice versa.
+            $scope.IsDisabled = !$scope.isadmin;
+            
+        }
+    });
+
+    var app = angular.module('MyApp', [])
+    app.controller('MyController', function ($scope) {
+        codeval=$scope.getElementById("code");
+        $scope.authenCode = function () 
+        {
+            if(codevalue=="GAMQZP@66PQZ")
+        {
+            alert("Authentication code is correct. You have the Admin Privelage");
+
+        }
+        else
+        {
+            alert("Wrong Authentication code. You dont have the Admin Privilage. Please uncheck the checkbox!");
+
+        }
+            
+            
+        }
+            
+        
+    });
+</script>
+<script>
+    function authencode()
+    {
+        codevalue=document.getElementById("code").value;
+        if(codevalue=="GAMQZP@66PQZ")
+        {
+            alert("Authentication code is correct. You have the Admin Privelage");
+
+        }
+        else
+        {
+            alert("Wrong Authentication code. You dont have the Admin Privilage. Please uncheck the checkbox!");
+
+        }
+    }
+
+    function x($scope) {
+
+        $scope.code = document.code;
+
+        $scope.acode = 'GAMQZP@66PQZ';
+
+        $scope.func = function () {
+            if(code==acode)
+            {
+                alert("Authentication code is correct. You have the Admin Privelage");
+            }
+            else{
+                alert("Wrong Authentication code. You dont have the Admin Privilage. Please uncheck the checkbox!");
+
+
+            }
+
+        }
+
+    }
+
+</script>
+
+<p>registeration works!</p>
+<h1 align="center" class="display-4 mb-5">Register Yourself</h1>
+<div style="width:40%; margin: 25px auto" >
+  <form  name="myForm" #form="ngForm" (ngSubmit)="onSubmit()" >
+  
+    <div class="form-group">
+      <label><b>Full Name</b></label>
+      <input [(ngModel)]="user.fullname" type="text" class="form-control form-control-lg" id="fullname" name="fullname" placeholder="Your full name" required #fullname="ngModel">
+        <div  *ngIf="fullname.invalid && (fullname.dirty ||fullname.touched)">
+            <div *ngIf="fullname.errors">
+                Full Name is required.
+            </div>
+            <!-- <div *ngIf="name.errors.minlength">
+                Name must be at least 3 characters long.
+            </div> -->
+        </div>
+    </div>
+
+
+    <div class="form-group">
+      <label><b>Email address</b></label>
+      <input [(ngModel)]="user.email" type="email" class="form-control form-control-lg" id="email" name="email" placeholder="Enter email" email required autofocus  #email="ngModel">
+      <div  *ngIf="email.invalid && (email.dirty ||email.touched)" >
+          <div *ngIf="email.errors" >
+              Email is required.
+          </div>
+          <div *ngIf="email.errors">
+              Invalid Email.
+          </div>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label><b>User Name</b></label>
+      <input [(ngModel)]="user.uname" type="text" class="form-control form-control-lg" id="uname" name="uname" placeholder="Your user name" required #uname="ngModel">
+        <div  *ngIf="uname.invalid && (uname.dirty ||uname.touched)">
+            <div *ngIf="uname.errors">
+                User Name is required.
+            </div>
+            <!-- <div *ngIf="name.errors.minlength">
+                Name must be at least 3 characters long.
+            </div> -->
+        </div>
+    </div>
+
+
+    <div class="form-group">
+      <label><b>Password</b></label>
+      <input  [(ngModel)]="user.pwd" type="password" class="form-control form-control-lg" id="pwd" name="pwd" placeholder="Password" minlength="6" required #pwd="ngModel">
+        <div  *ngIf="pwd.invalid && (pwd.dirty ||pwd.touched)">
+            <div *ngIf="pwd.errors">
+                Password is required.
+            </div>
+             <div *ngIf="pwd.errors">
+                Password must be at least 6 characters long.
+            </div> 
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label><b>Phone</b></label>
+      <input [(ngModel)]="user.phno" type="text" class="form-control form-control-lg" id="phno" name="phno" placeholder="Phone" required #phno="ngModel" >
+        <div  *ngIf="phno.invalid && (phno.dirty ||phno.touched)">
+            <div *ngIf="phno.errors">
+                Phone is required.
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+      <label><b>Address</b></label>
+      <label><b>Address Line 1</b></label>
+      <input [(ngModel)]="address.addressLine1" type="text" class="form-control form-control-lg" id="addressLine1" name="addressLine1" placeholder="Address Line 1" required #addressLine1="ngModel">
+        <div  *ngIf="addressLine1.invalid && (addressLine1.dirty ||addressLine1.touched)">
+            <div *ngIf="addressLine1.errors">
+                Address Line 1 is required.
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label><b>Address Line 2</b></label>
+      <input [(ngModel)]="address.addressLine2" type="text" class="form-control form-control-lg" id="addressLine2" name="addressLine2" placeholder="Address Line 2" required #addressLine2="ngModel">
+        <div  *ngIf="addressLine2.invalid && (addressLine2.dirty ||addressLine2.touched)">
+            <div *ngIf="addressLine2.errors">
+                Address Line 2 is required.
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label><b>City</b></label>
+      <input [(ngModel)]="address.city" type="text" class="form-control form-control-lg" id="city" name="city" placeholder="City" required #city="ngModel">
+        <div  *ngIf="city.invalid && (city.dirty ||city.touched)">
+            <div *ngIf="city.errors">
+                City is required.
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label><b>Pin Code</b></label>
+        <input [(ngModel)]="address.pinCode" type="text" class="form-control form-control-lg" id="pinCode" name="pinCode" placeholder="pinCode" required #pinCode="ngModel">
+          <div  *ngIf="pinCode.invalid && (pinCode.dirty ||pinCode.touched)">
+              <div *ngIf="pinCode.errors">
+                  Pin Code is required.
+              </div>
+          </div>
+      </div>
+
+      
+
+    <div class="form-group">
+      <label><b>State</b></label>
+      <input [(ngModel)]="address.state" type="text" class="form-control form-control-lg" id="state" name="state" placeholder="State" required #state="ngModel">
+        <div  *ngIf="state.invalid && (state.dirty ||state.touched)">
+            <div *ngIf="state.errors">
+                State is required.
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label><b>Country</b></label>
+      <input [(ngModel)]="address.country" type="text" class="form-control form-control-lg" id="country" name="country" placeholder="Country" required #country="ngModel">
+        <div  *ngIf="country.invalid && (country.dirty ||country.touched)">
+            <div *ngIf="country.errors">
+                Country is required.
+            </div>
+        </div>
+    </div>
+
+<!-- <script type="text/javascript">
+document.getElementById('isAdmin').onchange = function() 
+{
+    document.getElementById('code').disabled = !this.checked;
+};
+    function EnableDisableTextBox(isAdmin) {
+        var code = document.getElementById("code");
+        code.disabled = isAdmin.checked ? false : true;
+        if (!code.disabled) {
+            tcode.focus();
+        }
+    }
+</script> -->
+    <div class="form-group" ng-app="MyApp" ng-controller="MyController">
+      <label><b>Are you a Admin ?</b></label>
+      <input [(ngModel)]="user.isAdmin" type="checkbox" id="isAdmin"  name="isAdmin" #isAdmin="ngModel" #chkEnable ngModel>
+      <!--ng-model="isadmin" ng-change="EnableDisable()"-->
+    
+            <div *ngIf="isAdmin.errors">
+               
+            </div>
+
+            <br />
+Authorization code:
+<input type="text" id="code" [disabled]="!chkEnable.checked" #myNameElem>
+<!-- <input type="text" #box id="code" [disabled]="!chkEnable.checked" (keyup.enter)="onEnter(box.value)" /> -->
+<!--button (click)="validateCode(this.code)">Authenticate </button-->
+<button type="button" id="abutton" [disabled]="!chkEnable.checked"  (click)="getValue()" onclick="enter()" >Authenticate </button>
+
+     
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-lg btn-primary btn-block" [disabled]="!form.form.valid" >Sign Up</button>
+    </div>
+  </form>
+</div>

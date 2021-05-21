@@ -1,0 +1,89 @@
+<h1 align="center" class="display-4 mb-5">Login</h1>
+<div style="width:40%; margin: 25px auto" >
+  <form #form="ngForm" (ngSubmit)="loginCheck()" >
+
+    <div class="form-group">
+        <label><b>User Name</b></label>
+        <input [(ngModel)]="login.uname" type="text" class="form-control form-control-lg" id="uname" name="uname" placeholder="Your user name" required #uname="ngModel">
+          <div  *ngIf="uname.invalid && (uname.dirty ||uname.touched)">
+              <div *ngIf="uname.errors">
+                  User Name is required.
+              </div>
+              <!-- <div *ngIf="name.errors.minlength">
+                  Name must be at least 3 characters long.
+              </div> -->
+          </div>
+      </div>
+  
+      <div class="form-group">
+        <label><b>Password</b></label>
+        <input  [(ngModel)]="login.pwd" type="password" class="form-control form-control-lg" id="pwd" name="pwd" placeholder="Password" minlength="6" required #pwd="ngModel">
+          <div  *ngIf="pwd.invalid && (pwd.dirty ||pwd.touched)">
+              <div *ngIf="pwd.errors">
+                  Password is required.
+              </div>
+               <div *ngIf="pwd.errors">
+                  Password must be at least 6 characters long.
+              </div> 
+          </div>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-lg btn-primary btn-block" [disabled]="!form.form.valid" >Sign Up</button>
+      </div>
+    </form>
+  </div>
+
+	<!-- <div class="form-group">
+        <label><b>User Name</b></label>
+		 <input type="text" class="form-control form-control-lg" id="uname" name="uname" placeholder="Your user name" required #uname="ngModel">
+         <div  *ngIf="uname.invalid && (uname.dirty ||uname.touched)" [(ngModel)]="login.uname">
+	</div>
+	<div class="form-group">
+        <label><b>User Name</b></label>
+		 <input type="password" class="form-control form-control-lg" id="pwd" name="pwd" placeholder="Password" minlength="6" required #pwd="ngModel">
+            <div  *ngIf="pwd.invalid && (pwd.dirty ||pwd.touched)" [(ngModel)]="login.pwd">
+                <div *ngIf="pwd.errors">
+                    Password is required.
+                </div>
+                 <div *ngIf="pwd.errors">
+                    Password must be at least 6 characters long.
+                </div> >
+	    </div>
+    </div>
+	<div class="form-group">
+        <button type="submit" class="btn btn-lg btn-primary btn-block" [disabled]="!form.form.valid" >Log In</button>
+      </div>
+    </form>
+  </div>
+
+<!-- <p>registeration works!</p>
+<h1 align="center" class="display-4 mb-5">Login</h1>
+<div style="width:40%; margin: 25px auto" >
+  <form #form="ngForm" (ngSubmit)="onSubmit()" >
+  
+    <div class="form-group">
+        <label><b>User Name</b></label>
+        <input [(ngModel)]="user.uname" type="text" class="form-control form-control-lg" id="uname" name="uname" placeholder="Your user name" required #uname="ngModel">
+          <div  *ngIf="uname.invalid && (uname.dirty ||uname.touched)">
+              <div *ngIf="uname.errors">
+                  User Name is required.
+              </div>
+               <div *ngIf="name.errors.minlength">
+                  Name must be at least 3 characters long.
+              </div> -->
+          <!--/div>
+      </div>
+  
+  
+      <div class="form-group">
+        <label><b>Password</b></label>
+        <input  [(ngModel)]="user.pwd" type="password" class="form-control form-control-lg" id="pwd" name="pwd" placeholder="Password" minlength="6" required>
+          <div  *ngIf="pwd.invalid && (pwd.dirty ||pwd.touched)">
+              <div *ngIf="pwd.errors">
+                  Password is required.
+              </div>
+                
+          </div>
+      </div>
+  </form> --> -->
